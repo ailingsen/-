@@ -17,7 +17,7 @@ class mysql extends db {
     protected function __construct() {
         $this->conf = conf::getIns();
         
-        mysqli_connect($this->conf->host,$this->conf->user,$this->conf->pwd);
+        $this->connect($this->conf->host,$this->conf->user,$this->conf->pwd);
         $this->select_db($this->conf->db);
         $this->setChar($this->conf->char);
     }
@@ -35,7 +35,7 @@ class mysql extends db {
     }
 
     public function connect($h,$u,$p) {
-        $this->conn = mysqli_connect($h,$u,$p);
+        $this->conn = mysql_connect($h,$u,$p);
         if(!$this->conn) {
             $err = new Exception('连接失败');
             throw $err;
@@ -54,8 +54,7 @@ class mysql extends db {
 
     public function query($sql) {
 
-        $rs = mysqli_query($sql,$this->conn);
-
+        $rs = mysql_query($sql,$this->conn);
         log::write($sql);
 
         return $rs;

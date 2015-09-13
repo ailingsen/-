@@ -16,7 +16,7 @@ defined('ACC')||exit('ACC Denied');
 $_CFG = array();
 
 
-$_CFG['host'] = 'localhost';
+$_CFG['host'] = '127.0.0.1';
 $_CFG['user'] = 'root';
 $_CFG['pwd'] = '';
 $_CFG['db'] = 'boolshop';
