@@ -54,9 +54,9 @@ class mysql extends db {
 
     public function query($sql) {
 
-        $rs = mysql_query($sql,$this->conn);
+        $rs = mysql_query($sql,$this->conn); 
         log::write($sql);
-
+      
         return $rs;
     }
 
@@ -86,43 +86,41 @@ class mysql extends db {
         $sql .= ' values (\'';
         $sql .= implode("','",array_values($arr));
         $sql .= '\')';
-
         return $this->query($sql);
     
     }
 
     public function getAll($sql) {
         $rs = $this->query($sql);
-        
         $list = array();
-        while($row = mysqli_fetch_assoc($rs)) {
+        while($row = mysql_fetch_assoc($rs)) {
             $list[] = $row;
         }
-
+            
         return $list;
     }
 
     public function getRow($sql) {
         $rs = $this->query($sql);
         
-        return mysqli_fetch_assoc($rs);
+        return mysql_fetch_assoc($rs);
     }
 
     public function getOne($sql) {
         $rs = $this->query($sql);
-        $row = mysqli_fetch_row($rs);
+        $row = mysql_fetch_row($rs);
 
         return $row[0];
     }
 
     // 返回影响行数的函数
     public function affected_rows() {
-        return mysqli_affected_rows($this->conn);
+        return mysql_affected_rows($this->conn);
     }
 
     // 返回最新的auto_increment列的自增长的值
     public function insert_id() {
-        return mysqli_insert_id($this->conn);
+        return mysql_insert_id($this->conn);
     }
 
 

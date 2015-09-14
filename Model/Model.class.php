@@ -18,7 +18,7 @@ class Model {
     protected $error = array();
 
     public function __construct() {
-        $this->db = mysql::getIns();
+       $this->db = mysql::getIns();
     }
 
     public function table($table) {

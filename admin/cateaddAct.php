@@ -38,7 +38,6 @@ $data['parent_id'] = $_POST['parent_id'];
 $data['intro'] = $_POST['intro'];
 
 
-
 // 第三步,实例化model
 // 并调用model的相关方法
 

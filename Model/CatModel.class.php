@@ -48,7 +48,6 @@ class CatModel extends Model{
                 $tree = array_merge($tree,$this->getCatTree($arr,$v['cat_id'],$lev+1));
             }
         }
-
         return $tree;
     }
 
@@ -74,7 +73,6 @@ class CatModel extends Model{
             foreach($cats as $v) {
                 if($v['cat_id'] == $id) {
                     $tree[] = $v;
-                    
                     $id = $v['parent_id'];
                     break;
                 }

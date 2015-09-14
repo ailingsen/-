@@ -19,7 +19,7 @@ $_CFG = array();
 $_CFG['host'] = '127.0.0.1';
 $_CFG['user'] = 'root';
 $_CFG['pwd'] = '';
-$_CFG['db'] = 'boolshop';
+$_CFG['db'] = 'shopbool';
 $_CFG['char'] = 'utf8';
 
 
